@@ -1,0 +1,22 @@
+{
+  "name": "projs",
+  "version": "1.0.0",
+  "description": "Profesional JS Developer",
+  "main": "index.js",
+  "scripts": {
+    "start": "live-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andresskeetch/PlatziProfesionalJS.git"
+  },
+  "author": "@andresskeetch",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andresskeetch/PlatziProfesionalJS/issues"
+  },
+  "homepage": "https://github.com/andresskeetch/PlatziProfesionalJS#readme",
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  }
+}
