@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Proxy</title>
+</head>
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/levenshtein/1.0.5/levenshtein.js"></script>
+    <script>
+        const target ={
+            red: 'red',
+            blue: 'blue',
+            green: 'green'
+        }
+
+        const handle = {
+            get(obj, prop) {
+                if (prop in obj)
+                    return obj[prop];
+
+                const suggestion = Object.keys(obj).find(key => {
+                    return Levenshtein(key, prop) <= 3
+                })
+                if (suggestion)
+                    console.log(`${prop} no existe, quizas querias decir ${suggestion}`)
+
+                return obj[prop];
+            }
+        }
+        const p = new Proxy(target, handle);
+    </script>
+</body>
+</html>

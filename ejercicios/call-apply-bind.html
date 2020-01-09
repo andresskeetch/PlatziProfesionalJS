@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus at enim mollitia, velit asperiores aliquid numquam expedita, obcaecati perspiciatis ratione et minus consequatur eveniet fugit. Quod incidunt molestiae ducimus. Numquam.
+    <script >
+        function greet (){
+            console.log(`Hi, Im ${this.name} ${this.surname}`)
+        }
+
+        const richard = {
+            name: 'Richard',
+            surname: 'Hofman'
+        }
+
+        greet.call(richard);
+
+
+        function walk(meters, path) {
+            console.log(`${this.name} walk ${meters} meters to ${path}`)
+        }
+
+        walk.call(richard, 10, 'north');
+
+        walk.apply(richard, [800, 'west']);
+
+
+        const daniel = {
+            name: 'Daniel',
+            surname: 'Fugman'
+        }
+
+        const danielGreets = greet.bind(daniel);
+
+        danielGreets();
+
+        const danielWalks = walk.bind(daniel);
+
+        danielWalks(350, 'north');
+
+        const danielWalks2 = walk.bind(daniel, 370, 'north')
+
+        danielWalks2();
+
+        danielWalksCurry = walk.bind(daniel, 200);
+        danielWalksCurry('west')
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis cumque, deserunt illo iure nam dolorum eius saepe, nulla unde magni error assumenda quibusdam molestias itaque ipsam labore, consequatur maiores dolores?
+    <script>
+        console.log(this);
+
+        function WhoIsThis() {
+            return this;
+        }
+
+        console.log(`who is this? ${WhoIsThis()}`)
+
+        function WhoIsThisStrict() {
+            'use strict'
+            return this;
+        }
+        //lost this strict mode!
+        console.log(`who is this? ${WhoIsThisStrict()}`);
+
+        const person = {
+            name: 'Andres',
+            greet: function() {
+                console.log(`Hello I'm ${this.name}`)
+            }
+        }
+
+        person.greet();
+
+        const greet = person.greet;
+        //Lost this!
+        greet();
+
+
+        function Person(name) {
+            this.name = name;
+        }
+
+        Person.prototype.greet = function() {
+            console.log(`Hello I'm ${this.name}`)
+        }
+        //New object get this
+        const Andres = new Person('Andres');
+
+        Andres.greet();
+
+    </script>
+</body>
+</html>
